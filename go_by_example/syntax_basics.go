@@ -13,10 +13,12 @@ import (
 const s string = "constant"
 
 func main() {
- 	basicTypesExample()
-	arrayExample()
-	slicesExample()
-	mapExample()
+	// Uncomment the function calls below to see examples of various Go syntax basics.
+ 	//basicTypesExample()
+	//arrayExample()
+	//slicesExample()
+	//mapExample()
+	//useVariadicFunc()
 }
 
 func basicTypesExample() {
@@ -353,4 +355,21 @@ func add(a int, b int) int { // return types required
 // multiple return values
 func swap(x, y string) (string, string) { // add return types -- as many as required
 	return y, x
+}
+
+// variadic function can be called with any number of arguments
+func sum(nums ...int) int { // variadic function
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+
+func useVariadicFunc() {
+	fmt.Println("Sum of 1, 2, 3:", sum(1, 2, 3))		   // prints 6
+	fmt.Println("Sum of 10, 20, 30, 40, 50:", sum(10, 20, 30, 40, 50)) // prints 150
+
+	nums := []int{5, 10, 15}
+	fmt.Println("Sum of nums slice:", sum(nums...)) // prints 30
 }
