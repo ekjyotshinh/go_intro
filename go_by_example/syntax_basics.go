@@ -218,7 +218,8 @@ func main() {
     // Note: Go's `switch` statements automatically break after each case. No need for explicit `break` statements.
 
 	arrayExample();
-
+	slicesExample();
+	mapExample();
 }
 func arrayExample() {
 	// --- ARRAYS ---
@@ -258,4 +259,88 @@ func arrayExample() {
 		}
 	}
 	fmt.Println("2D Array 'twoD':", twoD)
+}
+
+func slicesExample() {
+	// --- SLICES ---
+	// A slice is a dynamically-sized, flexible view into the elements of an array.
+	log.Println("--- Slices ---")
+	var s []string;
+	fmt.Println("Empty slice 's':", s) // len(s) == 0 and s == nil
+	
+	// 1. Creating a slice with `make`:
+	s = make([]string, 3)
+	fmt.Println("Slice 's' created with make:", s)
+	fmt.Println("Length of slice 's':", len(s))
+	fmt.Println("Capacity of slice 's':", cap(s))
+	
+	// 2. Initializing a slice with values:
+	s = []string{"apple", "banana", "cherry"}
+	fmt.Println("Slice 's' initialized with values:", s)
+	
+	// 3. Appending to a slice:
+	s = append(s, "date")
+	fmt.Println("Slice 's' after appending 'date':", s)
+	
+	// 4. Slicing a slice:
+	subSlice := s[1:3]
+	fmt.Println("Sub-slice of 's' from index 1 to 3:", subSlice)
+	
+	// 5. Iterating over a slice using `for...range`:
+	fmt.Println("Iterating over slice 's':")
+	for i, v := range s {
+		fmt.Printf("  - Index %d: Value %s\n", i, v)
+	}
+
+	// 6. Copying a slice:
+	copiedSlice := make([]string, len(s))
+	copy(copiedSlice, s)
+	fmt.Println("Copied slice 'copiedSlice':", copiedSlice)
+
+	// 7. Multi-dimensional slice:
+	twoDSlice := [][]int{
+		{1, 2, 3},
+		{4, 5, 6},
+	}
+	fmt.Println("2D Slice 'twoDSlice':", twoDSlice)
+}
+
+func mapExample() {
+	// --- MAPS ---
+	// A map is an unordered collection of key-value pairs.
+	log.Println("--- Maps ---")
+
+	// 1. Creating a map:
+	m := make(map[string]int) // map with string keys and int values
+	fmt.Println("Empty map 'm':", m)
+	// 2. Adding key-value pairs:
+	m["apple"] = 1
+	m["banana"] = 2
+	fmt.Println("Map 'm' after adding key-value pairs:", m)
+
+	// 3. Accessing values by key:
+	appleCount := m["apple"]
+	fmt.Println("Value for key 'apple':", appleCount)
+
+	// 4. Deleting a key-value pair:
+	delete(m, "banana")
+	fmt.Println("Map 'm' after deleting key 'banana':", m)
+
+	// 5. Checking if a key exists:
+	value, exists := m["banana"]	// second value indicates if key is present
+	if exists {
+		fmt.Println("Key 'banana' exists with value:", value)
+	} else {
+		fmt.Println("Key 'banana' does not exist. value is default to :", value)
+	}
+
+	// 6. Iterating over a map using `for...range`:
+	fmt.Println("Iterating over map 'm':")
+	for k, v := range m {
+		fmt.Printf("  - Key: %s, Value: %d\n", k, v)
+	}
+
+	// 7. clearing a map:
+	clear(m)
+	fmt.Println("Map 'm' after clearing all key-value pairs:", m)
 }
