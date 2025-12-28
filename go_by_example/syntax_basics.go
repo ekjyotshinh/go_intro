@@ -1,6 +1,3 @@
-// Go's syntax is designed to be simple, clean, and highly readable.
-// This file provides a comprehensive overview of Go's fundamental syntax,
-// covering everything from basic operators to control structures.
 package main
 
 import (
@@ -16,6 +13,13 @@ import (
 const s string = "constant"
 
 func main() {
+ 	basicTypesExample()
+	arrayExample()
+	slicesExample()
+	mapExample()
+}
+
+func basicTypesExample() {
 	// A classic starting point. `fmt.Println` is used for basic output.
 	log.Println("Demonstrating basic Go syntax and constructs.")
 
@@ -215,11 +219,6 @@ func main() {
         log.Println("Type is unknown:", v)
     }
 
-    // Note: Go's `switch` statements automatically break after each case. No need for explicit `break` statements.
-
-	arrayExample();
-	slicesExample();
-	mapExample();
 }
 func arrayExample() {
 	// --- ARRAYS ---
@@ -343,4 +342,15 @@ func mapExample() {
 	// 7. clearing a map:
 	clear(m)
 	fmt.Println("Map 'm' after clearing all key-value pairs:", m)
+}
+
+// functions with return types
+// single return value
+func add(a int, b int) int { // return types required
+	return a + b
+}
+
+// multiple return values
+func swap(x, y string) (string, string) { // add return types -- as many as required
+	return y, x
 }
