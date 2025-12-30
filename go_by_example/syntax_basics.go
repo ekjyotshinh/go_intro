@@ -20,5 +20,7 @@ func main() {
 
 	//examples.DemoRecursion()
 
-	examples.DemoIteration()
+	//examples.DemoIteration()
+
+	examples.DemoPointers()
 }
