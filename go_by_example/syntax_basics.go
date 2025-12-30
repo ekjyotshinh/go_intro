@@ -16,7 +16,9 @@ func main() {
 	//fmt.Println("Anonymous function calls:", fistInt(), fistInt(), fistInt())
 
 	//econdInt := examples.AnonymousFuncExample()
-	//mt.Println("Another anonymous function calls:", secondInt(), secondInt())
+	//fmt.Println("Another anonymous function calls:", secondInt(), secondInt())
 
-	examples.DemoRecursion()
+	//examples.DemoRecursion()
+
+	examples.DemoIteration()
 }
