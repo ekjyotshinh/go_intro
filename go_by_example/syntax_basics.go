@@ -19,6 +19,11 @@ func main() {
 	//slicesExample()
 	//mapExample()
 	//useVariadicFunc()
+	//fistInt := anonymousFuncExample()
+	//fmt.Println("Anonymous function calls:", fistInt(), fistInt(), fistInt())
+
+	//secondInt := anonymousFuncExample()
+	//fmt.Println("Another anonymous function calls:", secondInt(), secondInt())
 }
 
 func basicTypesExample() {
@@ -372,4 +377,16 @@ func useVariadicFunc() {
 
 	nums := []int{5, 10, 15}
 	fmt.Println("Sum of nums slice:", sum(nums...)) // prints 30
+}
+
+// ananymous functions
+// return a function that increments and returns an integer
+// in this case the value of i in enclosed in the anonymous function's closure
+// so each time the returned function is called, it has access to its own i variable
+func anonymousFuncExample() func() int {
+	i := 0
+	return func() int{
+		i++
+		return i
+	}
 }
