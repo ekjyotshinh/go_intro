@@ -24,5 +24,7 @@ func main() {
 
 	//examples.DemoPointers()
 
-	examples.DemoStringAndRunes()
+	//examples.DemoStringAndRunes()
+
+	examples.DemoStructs()
 }
