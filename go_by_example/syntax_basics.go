@@ -22,5 +22,6 @@ func main() {
 	//examples.DemoStringAndRunes()
 	//examples.DemoStructs()
 	//examples.DemoStructMethods()
-	examples.DemoInterface()
+	//examples.DemoInterface()
+	examples.DemoEnum()
 }
