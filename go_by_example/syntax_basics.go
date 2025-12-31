@@ -22,5 +22,7 @@ func main() {
 
 	//examples.DemoIteration()
 
-	examples.DemoPointers()
+	//examples.DemoPointers()
+
+	examples.DemoStringAndRunes()
 }
