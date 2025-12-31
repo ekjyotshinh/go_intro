@@ -14,17 +14,12 @@ func main() {
 	//examples.UseVariadicFunc()
 	//fistInt := examples.AnonymousFuncExample()
 	//fmt.Println("Anonymous function calls:", fistInt(), fistInt(), fistInt())
-
 	//econdInt := examples.AnonymousFuncExample()
 	//fmt.Println("Another anonymous function calls:", secondInt(), secondInt())
-
 	//examples.DemoRecursion()
-
 	//examples.DemoIteration()
-
 	//examples.DemoPointers()
-
 	//examples.DemoStringAndRunes()
-
-	examples.DemoStructs()
+	//examples.DemoStructs()
+	examples.DemoStructMethods()
 }
