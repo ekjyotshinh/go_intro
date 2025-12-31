@@ -24,5 +24,6 @@ func main() {
 	//examples.DemoStructMethods()
 	//examples.DemoInterface()
 	//examples.DemoEnum()
-	examples.DemoGoroutines()
+	//examples.DemoGoroutines()
+	examples.DemoChannels()
 }
