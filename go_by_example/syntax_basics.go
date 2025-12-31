@@ -21,5 +21,6 @@ func main() {
 	//examples.DemoPointers()
 	//examples.DemoStringAndRunes()
 	//examples.DemoStructs()
-	examples.DemoStructMethods()
+	//examples.DemoStructMethods()
+	examples.DemoInterface()
 }
