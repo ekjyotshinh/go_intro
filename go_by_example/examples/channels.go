@@ -21,7 +21,9 @@ func DemoChannels() {
 
 	//selectExample() // example of using select with channels
 
-	nonBlockingSelectExample() // example of non-blocking channel operations using select
+	//nonBlockingSelectExample() // example of non-blocking channel operations using select
+
+	closingChannels() // example of closing channels and receiving from closed channels
 }
 
 func channelBasics() {
@@ -147,4 +149,44 @@ func nonBlockingSelectExample() {
 		fmt.Println("No messages received from either channel")
 	}
 
+}
+
+func closingChannels() {
+	// channels can be closed to indicate that no more values will be sent on them
+	// closing a channel is done using the built-in close function
+	// only the sender should close a channel, never the receiver
+	// closing a channel is useful to communicate completion to the receivers
+
+	dataChannel := make(chan string)
+
+	go func() {
+		for i := 0; i < 5; i++ {
+			dataChannel <- fmt.Sprintf("Data %d", i)
+		}
+		close(dataChannel) // close the channel after sending all data
+	}()
+
+	// range over the channel to receive values until it's closed
+	for data := range dataChannel {
+		fmt.Println("Received:", data)
+	}
+
+	// use infinite for loop with comma-ok idiom to receive from a closed channel
+	anotherDataChannel := make(chan string)
+	go func() {
+		for i := 0; i < 3; i++ {
+			anotherDataChannel <- fmt.Sprintf("Another Data %d", i)
+		}
+		close(anotherDataChannel)
+	}()
+
+	for {
+		data, ok := <-anotherDataChannel
+		if !ok {
+			break // channel is closed, exit the loop
+		}
+		fmt.Println("Received:", data)
+	}
+
+	fmt.Println("Channels closed, no more data.")
 }
