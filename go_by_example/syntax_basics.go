@@ -29,5 +29,6 @@ func main() {
 	//examples.DemoTimeouts()
 	//examples.DemoTimers()
 	//examples.DemoTickers()
-	examples.DemoWorkerPools()
+	//examples.DemoWorkerPools()
+	examples.DemoWaitGroups()
 }
