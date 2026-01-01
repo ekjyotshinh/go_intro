@@ -1,6 +1,8 @@
 package examples
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // channels are pipes that connect concurrent goroutines
 // we can send values into channels from one goroutine and receive those values into another goroutine
@@ -11,13 +13,15 @@ func addToChannel(c chan string, val string){
 
 func DemoChannels() {
 
-	channelBasics() // example of basic channel operations
+	//channelBasics() // example of basic channel operations
 
-	channelSynchronization() // example of using channels for synchronization
+	//channelSynchronization() // example of using channels for synchronization
 
-	channelDirections() // example of channel directions
+	//channelDirections() // example of channel directions
 
-	selectExample() // example of using select with channels
+	//selectExample() // example of using select with channels
+
+	nonBlockingSelectExample() // example of non-blocking channel operations using select
 }
 
 func channelBasics() {
@@ -105,4 +109,42 @@ func selectExample() {
 	case msg2 := <-channel2:
 		fmt.Println("Received:", msg2)
 	}
+}
+
+func nonBlockingSelectExample() {
+	// basic sends and recieves in channels are blocking operations
+	// so we can use select with a default case to implement non-blocking sends, receives, and even non-blocking multi-way selects
+	messageChannel := make(chan string)
+
+	// this is a unbuffered channel with no sender yet
+	// this receive will not block because of the default case
+	// if there were no default this could cause a deadlock
+	select {
+	case msg := <-messageChannel:
+		fmt.Println("Received message:", msg)
+	default:
+		fmt.Println("No message received")
+	}
+
+	msgToSend := "Hello, Channel!"
+
+	select {
+	case messageChannel <- msgToSend:
+		fmt.Println("Sent message:", msgToSend)
+	default:
+		fmt.Println("No message sent")
+	}
+
+	// we can use multiple cases abiuve teh default clause to implement a non-blocking multi-way select
+	anotherChannel := make(chan string)
+
+	select {
+	case msg := <-messageChannel:
+		fmt.Println("Received message from messageChannel:", msg)
+	case msg := <-anotherChannel:
+		fmt.Println("Received message from anotherChannel:", msg)
+	default:
+		fmt.Println("No messages received from either channel")
+	}
+
 }

@@ -25,6 +25,6 @@ func main() {
 	//examples.DemoInterface()
 	//examples.DemoEnum()
 	//examples.DemoGoroutines()
-	//examples.DemoChannels()
-	examples.DemoTimeouts()
+	examples.DemoChannels()
+	//examples.DemoTimeouts()
 }
