@@ -27,5 +27,6 @@ func main() {
 	//examples.DemoGoroutines()
 	//examples.DemoChannels()
 	//examples.DemoTimeouts()
-	examples.DemoTimers()
+	//examples.DemoTimers()
+	examples.DemoTickers()
 }
