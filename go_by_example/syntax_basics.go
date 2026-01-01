@@ -28,5 +28,6 @@ func main() {
 	//examples.DemoChannels()
 	//examples.DemoTimeouts()
 	//examples.DemoTimers()
-	examples.DemoTickers()
+	//examples.DemoTickers()
+	examples.DemoWorkerPools()
 }
