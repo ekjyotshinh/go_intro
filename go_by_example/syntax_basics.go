@@ -30,5 +30,6 @@ func main() {
 	//examples.DemoTimers()
 	//examples.DemoTickers()
 	//examples.DemoWorkerPools()
-	examples.DemoWaitGroups()
+	//examples.DemoWaitGroups()
+	examples.DemoMutexes()
 }
