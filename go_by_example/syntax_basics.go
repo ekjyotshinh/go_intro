@@ -1,9 +1,8 @@
 package main
 
-import (
-	//"fmt"
-	"go_by_example/examples"
-)
+import "go_by_example/examples"
+
+//"fmt"
 
 func main() {
 	// Uncomment the function calls below to see examples of various Go syntax basics.
@@ -31,5 +30,6 @@ func main() {
 	//examples.DemoTickers()
 	//examples.DemoWorkerPools()
 	//examples.DemoWaitGroups()
-	examples.DemoMutexes()
+	//examples.DemoMutexes()
+	examples.DemoStatefulGoroutines()
 }
