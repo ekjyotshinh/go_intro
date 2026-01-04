@@ -3,6 +3,7 @@ package examples
 import (
 	"fmt"
 	"log"
+	"slices"
 )
 
 func SlicesExample() {
@@ -38,15 +39,27 @@ func SlicesExample() {
 
 	// 6. Copying a slice:
 
-copiedSlice := make([]string, len(s))
+	copiedSlice := make([]string, len(s))
 	copy(copiedSlice, s)
 	fmt.Println("Copied slice 'copiedSlice':", copiedSlice)
 
 	// 7. Multi-dimensional slice:
 
-twoDSlice := [][]int{
+	twoDSlice := [][]int{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 	fmt.Println("2D Slice 'twoDSlice':", twoDSlice)
+
+	//soritng a slice
+	strs := []string{"c", "a", "b"}
+    slices.Sort(strs)
+    fmt.Println("Strings:", strs)
+
+    ints := []int{7, 2, 4}
+    slices.Sort(ints)
+    fmt.Println("Ints:   ", ints)
+
+    s2 := slices.IsSorted(ints)
+    fmt.Println("Sorted: ", s2)
 }

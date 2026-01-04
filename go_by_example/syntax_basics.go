@@ -8,7 +8,7 @@ func main() {
 	// Uncomment the function calls below to see examples of various Go syntax basics.
 	//examples.BasicTypesExample()
 	//examples.ArrayExample()
-	//examples.SlicesExample()
+	examples.SlicesExample()
 	//examples.MapExample()
 	//examples.UseVariadicFunc()
 	//fistInt := examples.AnonymousFuncExample()
@@ -31,5 +31,5 @@ func main() {
 	//examples.DemoWorkerPools()
 	//examples.DemoWaitGroups()
 	//examples.DemoMutexes()
-	examples.DemoStatefulGoroutines()
+	//examples.DemoStatefulGoroutines()
 }
